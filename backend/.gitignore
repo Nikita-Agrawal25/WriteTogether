@@ -1,0 +1,24 @@
+# Node.js dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Build output
+dist/
+build/
+
+# Cache files
+.cache/
+
+# Logs
+logs/
+*.log
+
+# Editor settings
+.vscode/
+.idea/
+
+# Python cache (if applicable)
+__pycache__/
+*.pyc
