@@ -1,0 +1,14 @@
+.code-editor{
+    border-bottom: 1px solid rgb(211, 206, 206);
+    margin-bottom: 2rem;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 40px;
+    width: 100vw;
+    padding-bottom: 2rem;
+}

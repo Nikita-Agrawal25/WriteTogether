@@ -1,0 +1,71 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+
+.navbar{
+    position: sticky;
+    top: 0;
+    z-index: 1; 
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    background-color: #F3F3F3;
+    margin-bottom: 0.5rem;
+    font-family: monospace;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .5);
+    padding: 0 40px;
+}
+
+.file-name{
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.text-code{
+    gap: 3px;
+}
+
+.btn{
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 5px 15px;
+    background-color: rgb(175, 172, 172);
+    color: black;
+    border-radius: 5px;
+    margin: 3px;
+}
+
+.btn:hover{
+    background-color: rgb(139, 138, 138);
+}
+
+.save, .share{
+    padding: 5px 15px;
+    margin: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.save{
+    background-color: rgb(189, 161, 36);
+    color: white;
+}
+.save:hover{
+    background-color: rgb(158, 134, 29);
+}
+
+.share{
+    background-color: rgb(52, 89, 209);
+    color: white;
+}
+.share:hover{
+    background-color: rgb(42, 72, 170);
+}
+
