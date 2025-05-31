@@ -16,7 +16,7 @@ const Signup = (props) => {
         const obj = { email, name, token, image };
         localStorage.setItem('user-info', JSON.stringify(obj));
         navigate('/dashboard');
-
+        
       } else {
         // console.log('hii');
         throw new Error(authResult);

@@ -99,9 +99,9 @@ const deleteTeam = async (teamId, teamName) => {
     } catch(error){
       if (error.response && error.response.status === 409) {
         setMessage('File name already exists.');
-    } else {
+      } else {
         setMessage('Failed to create file.');
-    }
+      }
     // console.error('Error creating file:', error);
     }
     setFileName('')

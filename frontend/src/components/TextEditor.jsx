@@ -86,6 +86,3 @@ function TextEditor({id, content, onChange, accessLevel}) {
 }
 
 export default TextEditor
-
-
-

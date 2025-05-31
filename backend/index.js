@@ -37,13 +37,18 @@ io.on('connection', socket => {
     socket.to(id).emit('receive-changes', delta)
   })
 
-  socket.on('code-change', (data) => {
-    socket.broadcast.emit('receive-code-change', data)
-  })
+  socket.on('join-room', (id) => {
+    socket.join(id);
+  });
 
-  socket.on('laguage-change', (data) => {
-    socket.broadcast.emit('receive-language-change', data)
-  })
+  socket.on('code-change', ({fileId, value}) => {
+    socket.to(fileId).emit('receive-code-change', {fileId, value});
+  });
+
+  socket.on('language-change', ({ fileId, lang }) => {
+    socket.to(fileId).emit('receive-language-change', {fileId, lang});
+  });
+
 })
 
 

@@ -5,8 +5,8 @@ import Dashboard from './pages/Dashboard'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import Home from './pages/Home'
 import Signup from './pages/Signup'
-import Editor from './Editor'
 import Create from './pages/teams/Create'
+import Editor from './components/editor/Editor'
 
 
 function App() {
