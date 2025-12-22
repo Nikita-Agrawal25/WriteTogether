@@ -3,7 +3,7 @@ import SideNav from '../components/dashboard/SideNav'
 import Main from '../components/dashboard/Main'
 
 const Dashboard = () => {
-  const [activeTeam, setActiveTeam] = useState('Team Name');
+  const [activeTeam, setActiveTeam] = useState('Team Name')
   const [userInfo, setUserInfo] = useState({
     image: '',
     name: 'ABC',
@@ -11,11 +11,15 @@ const Dashboard = () => {
   });
 
   useEffect(() => {
-    const data = localStorage.getItem('user-info')
-    if(data) {
-      const userData = JSON.parse(data);
-      setUserInfo(userData);
+    const loadUserInfo = () => {
+      const data = localStorage.getItem('user-info');
+      if (data) {
+        const userData = JSON.parse(data);
+        setUserInfo(userData);
+        console.log('User info: ', userData);
+      }
     }
+    loadUserInfo();
   }, [])
 
   return (

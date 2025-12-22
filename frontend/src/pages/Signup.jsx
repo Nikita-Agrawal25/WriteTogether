@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useGoogleLogin } from "@react-oauth/google";
-import { googleAuth } from "../api/userAuth";
+import { googleAuth } from "../api/WriteTogether";
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/loggoo1.png'
 

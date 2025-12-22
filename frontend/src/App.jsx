@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import Signup from './pages/Signup'
 import Create from './pages/teams/Create'
 import Editor from './components/editor/Editor'
+import ProtectedRoute from './components/ProtectedRoute'
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
   const [userInfo, setUserInfo] = useState({
     image: '',
     name: 'ABC',
-    email: 'abc@gmail.com',
+    email: 'abc@gmail.com'
   });
 
   useEffect(() => {
@@ -48,9 +49,9 @@ function App() {
           <Route path='/login' element={<GoogleWrapper/>}/>
           <Route path='/' element={<Home/>}/>
           <Route path='/signup' element={<SignupWrapper/>}/>
-          <Route path='/dashboard' element={<Dashboard/>}/>
-          <Route path="/editor/:id" element={<Editor activeTeam={activeTeam} userInfo={userInfo}/>} />
-          <Route path='/team/create' element={<Create/>}/>
+          <Route path='/dashboard' element={<ProtectedRoute> <Dashboard/> </ProtectedRoute>}/>
+          <Route path="/editor/:id" element={<ProtectedRoute> <Editor activeTeam={activeTeam} userInfo={userInfo}/> </ProtectedRoute>} />
+          <Route path='/team/create' element={<ProtectedRoute> <Create/> </ProtectedRoute>}/>
         </Routes>
       </BrowserRouter>
     </>

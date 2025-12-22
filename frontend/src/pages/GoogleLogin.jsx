@@ -13,13 +13,14 @@ const GoogleLogin = (props) => {
 				const result = await googleAuth(authResult.code);
 				// console.log(result.data.user)
 				const {email, name, image} = result.data.user;
+				const {access_token, refresh_token} = result.data.user.tokens;
 				const token = result.data.token;
-				const obj = {email,name, token, image};
+				const obj = {email, name, token, image};
+				// console.log("obj- ", obj);
 				localStorage.setItem('user-info',JSON.stringify(obj));
 				navigate('/dashboard');
 
 			} else {
-				// console.log('hii');
 				throw new Error(authResult);
 			}
 		} catch (e) {

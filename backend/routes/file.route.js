@@ -109,65 +109,12 @@ router.post("/save", async (req, res) => {
     }
 });
 
-// // Share file
-// router.post("/share", async (req, res) => {
-//   const {fileId, email} = req.body;
-//   const exactFileId = fileId.replace(/:/g, '');
-//   try{
-//     const file = await File.findByIdAndUpdate({_id: exactFileId},
-//       {$push: {permissions: {email, role: 'write'}}},
-//       {new: true, runvalidators: true}
-//     );    
-//     if (!file) {
-//       return res.status(404).json({ message: "File not found" });
-//     }    
-//     res.status(200).json({shareId: exactFileId});
-//     // console.log("File content saved");
-//   } catch (error){
-//     console.error("Error sharing file:", error);
-//     res.status(500).json({message: "Failed to share file"});
-//   }
-// });
-
-
-// router.post("/shared/:id", async (req, res) => {
-//   const {id} = req.params;
-//   const exactFileId = id.replace(/:/g, '');
-//   try{
-//     const file = await File.findOne({_id: exactFileId});
-//     if (!file) {
-//       return res.status(404).json({message: "File not found"});
-//     }
-//     const permission = file.permissions.find(p => p.email === req.body.email);
-//     if (!permission) {
-//       return res.status(403).json({message: "Permission denied"});
-//     }    
-//     res.status(200).json({message: "File fetched", file});
-//     // console.log("File content saved");
-//   } catch (error){
-//     console.error("Error fetching shared file:", error);
-//     res.status(500).json({message: "Failed to fetch shared file"});
-//   }
-// });
-
-
-
 // Share file
 router.post("/share", async (req, res) => {
   const { fileId, email } = req.body;
   const exactFileId = fileId.replace(/:/g, '');
 
   try {
-      // const file = await File.findByIdAndUpdate(
-      //     { _id: exactFileId },
-      //     { $push: { permissions: { email, role: 'write' } } },
-      //     { new: true, runValidators: true }
-      // );
-
-      // if (!file) {
-      //     return res.status(404).json({ message: "File not found" });
-      // }
-
       // Configure nodemailer
       const transporter = nodemailer.createTransport({
           service: 'gmail',
@@ -201,26 +148,5 @@ router.post("/share", async (req, res) => {
   }
 });
 
-// Check shared file permission
-router.post("/shared/:id", async (req, res) => {
-  const { id } = req.params;
-  const exactFileId = id.replace(/:/g, '');
-  try {
-      const file = await File.findOne({ _id: exactFileId });
-      if (!file) {
-          return res.status(404).json({ message: "File not found" });
-      }
-      const permission = file.permissions.find(p => p.email === req.body.email);
-      if (!permission) {
-          return res.status(403).json({ message: "Permission denied" });
-      }
-      res.status(200).json({ message: "File fetched", file });
-  } catch (error) {
-      console.error("Error fetching shared file:", error);
-      res.status(500).json({ message: "Failed to fetch shared file" });
-  }
-});
-
-   
 
 module.exports = router;
